@@ -1,25 +1,32 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import RnEnhancedStylesheet from 'rn-enhanced-stylesheet';
+import { View, Text, useColorScheme } from 'react-native';
+import {
+  StyleSheet,
+  useStyleSheet,
+  DynamicValue,
+} from 'rn-enhanced-stylesheet';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    RnEnhancedStylesheet.multiply(3, 7).then(setResult);
-  }, []);
+  const styles = useStyleSheet(stylesheet);
+  const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text style={styles.title}>
+        {isDarkMode ? 'Dark mode' : 'Light mode'}
+      </Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const stylesheet = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: new DynamicValue('black', 'white'),
+  },
+  title: {
+    color: new DynamicValue('white', 'black'),
   },
 });
