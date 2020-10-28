@@ -1,0 +1,22 @@
+{
+  "name": "rn-enhanced-stylesheet-example",
+  "displayName": "RnEnhancedStylesheet Example",
+  "expo": {
+    "name": "rn-enhanced-stylesheet-example",
+    "slug": "rn-enhanced-stylesheet-example",
+    "description": "Example app for rn-enhanced-stylesheet",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
